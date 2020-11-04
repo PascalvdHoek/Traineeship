@@ -72,7 +72,7 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "exclude": [
-    "/Users/pascalvandenhoek/Projects/Traineeship Jool/Typescript/Understanding-TS/Basics and basic types",
+    "History",
     "node_modules"
 
   ]
