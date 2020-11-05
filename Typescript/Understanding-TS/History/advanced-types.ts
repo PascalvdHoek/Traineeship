@@ -1,11 +1,11 @@
 type Admin = {
-  name: string;
-  privileges: string[];
+    name: string;
+    privileges: string[];
 };
 
 type Employee = {
-  name: string;
-  startDate: Date;
+    name: string;
+    startDate: Date;
 };
 
 type ElevatedEmployee = Admin & Employee;
@@ -23,9 +23,9 @@ type ElevatedEmployee = Admin & Employee;
 // interface ElevatedEmployee extends Employee, Admin {}
 
 const e1: ElevatedEmployee = {
-  name: "Max",
-  privileges: ["create-server"],
-  startDate: new Date(),
+    name: 'Max',
+    privileges: ['create-server'],
+    startDate: new Date(),
 };
 
 type Combinable = string | number;
@@ -40,14 +40,14 @@ function add(a: string, b: number): string;
 function add(a: string, b: string): string;
 
 function add(a: Combinable, b: Combinable) {
-  if (typeof a === "string" || typeof b === "string") {
-    return a.toString() + b.toString();
-  }
-  return a + b;
+    if (typeof a === 'string' || typeof b === 'string') {
+        return a.toString() + b.toString();
+    }
+    return a + b;
 }
 
-const result = add("Max", "Schwarz");
-result.split(" ");
+const result = add('Max', 'Schwarz');
+result.split(' ');
 
 //My solution, works in Javascript, but not in Typescript
 // function add(a: Combinable, b: Combinable) {
@@ -60,34 +60,34 @@ result.split(" ");
 type UnknownEmployee = Employee | Admin;
 
 const e2: UnknownEmployee = {
-  name: "Boss",
-  privileges: ["play the boss"],
+    name: 'Boss',
+    privileges: ['play the boss'],
 };
 
 function printEmployeeInformation(emp: UnknownEmployee) {
-  console.log(emp.name);
-  if ("privileges" in emp) {
-    console.log(emp.privileges);
-  }
-  if ("startDate" in emp) {
-    console.log(emp.startDate);
-  }
+    console.log(emp.name);
+    if ('privileges' in emp) {
+        console.log(emp.privileges);
+    }
+    if ('startDate' in emp) {
+        console.log(emp.startDate);
+    }
 }
 
 class Car {
-  drive() {
-    console.log("Driving....");
-  }
+    drive() {
+        console.log('Driving....');
+    }
 }
 
 class Truck {
-  drive() {
-    console.log("Driving Truck ....");
-  }
+    drive() {
+        console.log('Driving Truck ....');
+    }
 
-  loadCargo(amount: number) {
-    console.log("Loading Cargo ... " + amount);
-  }
+    loadCargo(amount: number) {
+        console.log('Loading Cargo ... ' + amount);
+    }
 }
 
 type Verhicle = Car | Truck;
@@ -96,61 +96,61 @@ const v1 = new Car();
 const v2 = new Truck();
 
 function useVehicle(vehicle: Verhicle) {
-  if (vehicle instanceof Truck) {
-    vehicle.loadCargo(10);
-  }
-  vehicle.drive();
+    if (vehicle instanceof Truck) {
+        vehicle.loadCargo(10);
+    }
+    vehicle.drive();
 }
 
 interface Bird {
-  type: "bird";
-  flyingSpeed: number;
+    type: 'bird';
+    flyingSpeed: number;
 }
 
 interface Horse {
-  type: "horse";
-  runningSpeed: number;
+    type: 'horse';
+    runningSpeed: number;
 }
 
 type Animal = Bird | Horse;
 
 function moveAnimal(animal: Animal) {
-  let speed: number;
+    let speed: number;
 
-  switch (animal.type) {
-    case "bird":
-      speed = animal.flyingSpeed;
-      break;
-    case "horse":
-      speed = animal.runningSpeed;
-      break;
-  }
-  console.log("Moving at speed: ", speed);
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpeed;
+            break;
+    }
+    console.log('Moving at speed: ', speed);
 }
 
-moveAnimal({ type: "horse", runningSpeed: 20 });
-moveAnimal({ type: "bird", flyingSpeed: 80 });
+moveAnimal({ type: 'horse', runningSpeed: 20 });
+moveAnimal({ type: 'bird', flyingSpeed: 80 });
 
 /* Type Casting */
 
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input');
 const userInputElement = document.getElementById(
-  "user-input"
+    'user-input'
 ) as HTMLInputElement;
 
-userInputElement.value = "Hi there!";
+userInputElement.value = 'Hi there!';
 
 /* Index properties */
 
 interface ErrorContainer {
-  [prop: string]: string;
+    [prop: string]: string;
 }
 
 const errorBag: ErrorContainer = {
-  email: "Not a valid email",
-  username: "Use a capital letter",
+    email: 'Not a valid email',
+    username: 'Use a capital letter',
 };
 /** Nullish coalescing */
 
-let userInput = "";
-console.log(userInput || "Dfeaul");
+let userInput = '';
+console.log(userInput || 'Dfeaul');
