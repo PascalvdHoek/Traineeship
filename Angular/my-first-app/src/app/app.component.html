@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>{{ title }}</h2>
+
+      <input type="text" [(ngModel)]="name" />
+      <h1>Hello, this is {{ name }}</h1>
+      <app-servers></app-servers>
+      <app-warning-alert></app-warning-alert>
+      <app-success-alert></app-success-alert>
+    </div>
+  </div>
+</div>
+
+<app-two-way-bind></app-two-way-bind>
+
+<app-directive-assignement></app-directive-assignement>

@@ -1,0 +1,18 @@
+<button class="btn btn-primary" (click)="toggleVisiblity()">
+  Display Details
+</button>
+
+<p [ngStyle]="{ display: visible ? 'block' : 'none' }">
+  Secret Password is tuna
+</p>
+
+<ul>
+  <li *ngFor="let logItem of log; index as i">
+    <div
+      [ngStyle]="{ color: i > 4 ? 'white' : 'black' }"
+      [ngClass]="{ blueBackground: i > 4 }"
+    >
+      {{ logItem.visible }} - {{ logItem.time }} - {{ i }}
+    </div>
+  </li>
+</ul>
