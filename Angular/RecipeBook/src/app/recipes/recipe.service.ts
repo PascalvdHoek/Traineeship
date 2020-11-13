@@ -7,11 +7,12 @@ import { Recipe } from './recipe.model';
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
-    new Recipe('Pancakes', 'Very delicious pancakes', PANCAKE_URL, [
+    new Recipe(0, 'Pancakes', 'Very delicious pancakes', PANCAKE_URL, [
       new Ingredient('flour', 200),
       new Ingredient('eggs', 5),
     ]),
     new Recipe(
+      1,
       'Bacon and eggs',
       'Very delicious Bacon and eggs',
       BACONEGGS_URL,
@@ -23,6 +24,10 @@ export class RecipeService {
 
   getRecipes() {
     return [...this.recipes];
+  }
+
+  getRecipe(id: number) {
+    return this.recipes.find((a) => a.id === id);
   }
 
   addToShoppingList(ingredients: Ingredient[]) {
