@@ -32,23 +32,10 @@ export class RecipeEditComponent implements OnInit {
     console.log(this.recipeForm);
     //update
     if (this.editMode) {
-      this.recipeSerice.updateRecipe(
-        new Recipe(
-          this.recipe.id,
-          this.recipeForm.value.name,
-          this.recipeForm.value.description,
-          this.recipeForm.value.imagePath,
-          this.recipeForm.value.ingredients
-        )
-      );
+      this.recipeSerice.updateRecipe(this.recipe.id, this.recipeForm.value);
     } else {
       //Add
-      this.recipeSerice.addRecipe(
-        this.recipeForm.value.name,
-        this.recipeForm.value.description,
-        this.recipeForm.value.imagePath,
-        this.recipeForm.value.ingredients
-      );
+      this.recipeSerice.addRecipe(this.recipeForm.value);
     }
   }
   onDeleteIngredient(index: number) {
@@ -59,8 +46,7 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['recipes']);
   }
   onAddIngredient() {
-    let ingredients = (<FormArray>this.recipeForm.get('ingredients')).controls;
-    ingredients.push(
+    (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormGroup({
         name: new FormControl('', Validators.required),
         amount: new FormControl('', [
