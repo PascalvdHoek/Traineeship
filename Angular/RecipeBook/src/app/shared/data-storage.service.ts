@@ -9,6 +9,7 @@ import { map, tap } from 'rxjs/operators';
 export class DataStorageService {
   private url = 'https://recipe-book-2d40a.firebaseio.com/recipes.json';
   recipes: Recipe[];
+  token: string;
 
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
 
