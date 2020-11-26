@@ -15,7 +15,7 @@ import { AuthResponseData, AuthService } from './auth.service';
   selector: 'app-auth',
   templateUrl: './auth.component.html',
 })
-export class AuthComponent implements OnDestroy {
+export class AuthComponent {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
@@ -79,9 +79,6 @@ export class AuthComponent implements OnDestroy {
     this.subscription = componentRef.instance.close.subscribe(() => {
       hostViewContainerRef.clear();
     });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }
